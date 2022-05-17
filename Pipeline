@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    tools {
+        maven "maven-3.6.3"
+    }
+    environment {
+        imagename = "itsimplis/imgdemo"
+        dockercredentials
+    }
+    stages {
+        stage('Pull') {
+            steps {
+                git url: 'https://github.com/tvarsamidis/Quiz2_MathApp', branch: 'master'
+            }
+        }
+        stage('Package') {
+            steps {
+                sh "mvn package"
+            }
+        }
+    }
+}

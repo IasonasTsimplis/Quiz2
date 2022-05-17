@@ -1,0 +1,1 @@
+docker container run --name myapache_hello --publish 9000:8080 79947076ed49
